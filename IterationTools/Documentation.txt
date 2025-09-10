@@ -1,0 +1,20 @@
+Iterable:	Any object you can loop over (list, tuple, dict, string, file, generator). It only knows how to
+            produce an iterator (via iter()), but doesn’t remember the current position itself.
+
+Iterator:	The actual object that keeps track of where you are in the iteration. You get it by calling
+            iter(iterable). Supports next().
+
+An iterator is any object that implements two special methods:
+__iter__() → returns the iterator itself
+__next__() → returns the next value in the sequence, and raises StopIteration when no items are left
+
+
+myList = [1, 2, 3]   # this is an iterable
+
+it = iter(myList)    # this is an iterator object
+
+print(it)            # <list_iterator object at ...>
+print(next(it))      # 1
+print(next(it))      # 2
+print(next(it))      # 3
+# next(it) now raises StopIteration
